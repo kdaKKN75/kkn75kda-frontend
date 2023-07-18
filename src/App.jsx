@@ -5,7 +5,7 @@ import Footer from './components/footer/footer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // Import Pages
-import { Artikel } from './pages';
+import { Artikel, VisiMisi } from './pages';
 
 function App() {
     return (
@@ -15,6 +15,7 @@ function App() {
             <Footer />
             <Routes>
                 <Route path="/artikel" element={<Artikel />} />
+                <Route path="/visi-misi" element={<VisiMisi />} />
             </Routes>
         </BrowserRouter>
     );
