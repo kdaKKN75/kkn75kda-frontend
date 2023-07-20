@@ -1,10 +1,11 @@
 import { BiCalendarEdit } from 'react-icons/bi';
+import { Link } from 'react-router-dom';
 
-const ArtikelCard = () => {
+const ArtikelCard = (artikel) => {
     return (
         <>
             <div className="max-w-sm rounded overflow-hidden shadow-lg">
-                <a href="">
+                <Link to={`/artikel/${artikel.id}`}>
                     <img
                         className="w-full rounded-t-sm pt-4 pe-4 pb-1 ps-4"
                         src="https://tecdn.b-cdn.net/img/new/fluid/city/113.webp"
@@ -27,11 +28,11 @@ const ArtikelCard = () => {
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores
                             et perferendis eaque, exercitationem praesentium nihil.
                         </p>
-                        <a href="" className="text-green-700 hover:underline">
+                        <Link to={artikel.id} className="text-green-700 hover:underline">
                             Baca selengkapnya
-                        </a>
+                        </Link>
                     </div>
-                </a>
+                </Link>
             </div>
         </>
     );
