@@ -1,22 +1,21 @@
 import './App.css';
-// import NavbarMoblie from './components/Navbar_Mobile';
-import Navbar from './components/Navbar';
-import Footer from './components/footer/footer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { NavMobileContextProvider } from './utils/contexts/NavMobileContext';
 
 // Import Pages
-import { Artikel, VisiMisi } from './pages';
+import { Artikel, VisiMisi, HomeAdmin, Login } from './pages';
 
 function App() {
     return (
         <BrowserRouter>
-            {/* <NavbarMoblie/> */}
-            <Navbar />
-            <Footer />
-            <Routes>
-                <Route path="/artikel" element={<Artikel />} />
-                <Route path="/visi-misi" element={<VisiMisi />} />
-            </Routes>
+            <NavMobileContextProvider>
+                <Routes>
+                    <Route path="/artikel" element={<Artikel />} />
+                    <Route path="/visi-misi" element={<VisiMisi />} />
+                    <Route path="admin/dashboard" element={<HomeAdmin />} />
+                    <Route path="admin/login" element={<Login />} />
+                </Routes>
+            </NavMobileContextProvider>
         </BrowserRouter>
     );
 }
