@@ -26,7 +26,7 @@ function Navbar (){
     }
     return(
         <>
-        <nav className="block bg-lime-600 h-14 relative md:flex justify-between items-center">
+        <nav className="block bg-lime-600 h-14 md:flex justify-between items-center md:px-10 sticky top-0">
             <div className="flex ">
                 <img src={Logo} alt="" className="w-12 p-1"/>
                 <p className="py-2 pl-2 m-1 md:m-1">Sistem Informasi Desa</p>

@@ -1,19 +1,22 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Navbar from './component/Navbar'
-import Home from './pages/Home'
+import './App.css';
+// import NavbarMoblie from './components/Navbar_Mobile';
+import Navbar from './components/Navbar';
+import Footer from './components/footer/footer';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+// Import Pages
+import { Artikel } from './pages';
+import Home from './pages/Home';
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
+    {/* <NavbarMoblie/> */}
     <Navbar/>
-    <Home/>
+    {/* <Home/> */}
+    <Artikel/>
     </>
   )
 }
 
-export default App
+export default App;
