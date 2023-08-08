@@ -3,6 +3,7 @@ import { FaBars } from "react-icons/fa";
 import { FaAngleDown } from "react-icons/fa";
 import { BiCaretRight } from "react-icons/bi";
 import Logo from '../assets/Bondowoso.png'
+import { Link } from "react-router-dom";
 
 
 function Navbar (){
@@ -16,7 +17,16 @@ function Navbar (){
         }
     }
     const klikProfil = () => {
-        var y = document.getElementById("MenuProfil")
+        var y = document.getElementById("MenuProfil2")
+        
+        if (y.style.display === "block"){
+            y.style.display = "none"
+        } else {
+            y.style.display = "block"
+        }
+    }
+    const klikYayasan = () => {
+        var y = document.getElementById("MenuProfil1")
         
         if (y.style.display === "block"){
             y.style.display = "none"
@@ -26,22 +36,33 @@ function Navbar (){
     }
     return(
         <>
-        <nav className="block bg-lime-600 h-14 md:flex justify-between items-center md:px-10 sticky top-0">
+        <nav className="block bg-[#10B981] h-14 md:flex justify-between items-center md:px-10 sticky top-0 text-black">
             <div className="flex ">
                 <img src={Logo} alt="" className="w-12 p-1"/>
                 <p className="py-2 pl-2 m-1 md:m-1">Sistem Informasi Desa</p>
             </div>
             <div className="">
                     <ul className={`text align-right items-center ${nav} md:flex`} id="MenuNav">
-                        <li className="py-2 pl-2 md:px-2 md:py-4 bg-lime-300 hover:bg-lime-500 md:bg-lime-600 cursor-default">Home</li>
-                        <li className="py-2 pl-2 md:px-2 md:py-4 bg-lime-300 hover:bg-lime-500 md:bg-lime-600 cursor-default">Artikel</li>
-                        <li className="py-2 pl-2 md:px-2 md:py-4 bg-lime-300 hover:bg-lime-500 md:bg-lime-600 cursor-default">Statistik</li>
+                        <Link to={'/'}><li className="py-2 pl-2 md:px-2 md:py-4 bg-[#22d69b] hover:bg-[#2ae8a9] md:bg-[#10B981] cursor-default">Home</li></Link>
+                        <Link to={'/artikel'}><li className="py-2 pl-2 md:px-2 md:py-4 bg-[#22d69b] hover:bg-[#2ae8a9] md:bg-[#10B981] cursor-default">Artikel</li></Link>
+                        <Link to={'/statistik'}><li className="py-2 pl-2 md:px-2 md:py-4 bg-[#22d69b] hover:bg-[#2ae8a9] md:bg-[#10B981] cursor-default">Statistik</li></Link>
                         <div>
-                            <li className="flex py-2 pl-2 md:px-2 md:py-4 bg-lime-300 hover:bg-lime-500 items-center  md:bg-lime-600 cursor-default" id="dropdownMenuButton1" onClick={klikProfil}>Profile Desa <FaAngleDown className="mt-1 ml-2"/></li>
+                            <li className="flex py-2 pl-2 md:px-2 md:py-4 bg-[#22d69b] hover:bg-[#2ae8a9] items-center  md:bg-[#10B981] cursor-default md:w-44" id="dropdownMenuButton1" onClick={klikYayasan}>Yayasan Pendidikan <FaAngleDown className="mt-1 ml-2"/></li>
                             <div>
-                                <ul className="md:absolute z-10 md:w-32" style={{display:"none"}} id="MenuProfil">
-                                    <li className="py-2 pl-4 flex md:px-1 bg-lime-300 hover:bg-lime-500 float-none cursor-default"><BiCaretRight className="mt-1"/>Visi & Misi</li>
-                                    <li className="py-2 pl-4 flex md:px-1 bg-lime-300 hover:bg-lime-500 float-none cursor-default"><BiCaretRight className="mt-1"/>Perangkat Desa</li>
+                                <ul className="md:absolute z-10 md:w-32" style={{display:"none"}} id="MenuProfil1">
+                                    <Link to={'/Al-Maliki'}><li className="py-2 pl-4 flex md:px-1 bg-[#22d69b] hover:bg-[#2ae8a9] float-none cursor-default md:w-44"><BiCaretRight className="mt-1"/>Al-Maliki</li></Link>
+                                    <Link to={'/Nurul Anwar'}><li className="py-2 pl-4 flex md:px-1 bg-[#22d69b] hover:bg-[#2ae8a9] float-none cursor-default md:w-44"><BiCaretRight className="mt-1"/>Nurul Anwar</li></Link>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                        <div>
+                            <li className="flex py-2 pl-2 md:px-2 md:py-4 bg-[#22d69b] hover:bg-[#2ae8a9] items-center  md:bg-[#10B981] cursor-default md:w-32" id="dropdownMenuButton2" onClick={klikProfil}>Profile Desa <FaAngleDown className="mt-1 ml-2"/></li>
+                            <div>
+                                <ul className="md:absolute z-10 md:w-32" style={{display:"none"}} id="MenuProfil2">
+                                    <Link to={'/visi-misi'}><li className="py-2 pl-4 flex md:px-1 bg-[#22d69b] hover:bg-[#2ae8a9] float-none cursor-default md:w-32"><BiCaretRight className="mt-1"/>Visi & Misi</li></Link>
+                                    <Link to={'/Perangkat'}><li className="py-2 pl-4 flex md:px-1 bg-[#22d69b] hover:bg-[#2ae8a9] float-none cursor-default md:w-32"><BiCaretRight className="mt-1"/>Perangkat Desa</li></Link>
+                                    
                                 </ul>
                             </div>
                         </div>
