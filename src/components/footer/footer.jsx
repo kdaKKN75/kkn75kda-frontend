@@ -1,10 +1,10 @@
 import { FaGooglePlay } from 'react-icons/fa';
 import { BiLogoGmail, BiPhoneCall, BiPhone } from 'react-icons/bi';
 
-const footer = () => {
+const Footer = () => {
     return (
         <>
-            <footer className="container min-w-full bg-slate-800 text-gray-200 px-24">
+            <footer className="container min-w-full bg-slate-800 text-gray-200 px-6 md:px-24">
                 <div className="py-4">
                     <div className="flex flex-col md:flex-row justify-between gap-x-48">
                         <div className="pe-10">
@@ -16,8 +16,7 @@ const footer = () => {
                             </div>
                             <div className="mt-3">
                                 <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque vitae cupiditate illo
-                                    animi, praesentium qui dolores quasi necessitatibus quam officiis ipsa.
+                                Desa Koncer Darul Aman Merupakan salah satu desa di kabupaten Bondowoso yang terletak di kecamatan Tenggarang.
                                 </p>
                             </div>
                         </div>
@@ -60,4 +59,4 @@ const footer = () => {
     );
 };
 
-export default footer;
+export default Footer;

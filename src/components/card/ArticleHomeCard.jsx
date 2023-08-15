@@ -1,10 +1,10 @@
 import { BiCalendarEdit } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 
-const ArtikelCard = (artikel) => {
+const ArtikelHomeCard = (artikel) => {
     return (
         <>
-            <div className="max-w-md 2xl:max-w-lg rounded overflow-hidden shadow-lg bg-slate-50">
+            <div className="max-w-md 2xl:max-w-md rounded overflow-hidden shadow-lg">
                 <Link to={`/artikel/${artikel.id}`}>
                     <img
                         className="w-full rounded-[20px] pt-4 pe-4 pb-1 ps-4"
@@ -15,7 +15,7 @@ const ArtikelCard = (artikel) => {
                         <span className="bg-green-100 text-gray-800 text-xs font-medium mr-2 px-3 py-1 rounded">
                             Program Kerja
                         </span>
-                        <div className="font-bold text-xl my-1 text-slate-950">
+                        <div className="font-bold text-xl my-1">
                             Mountain Lorem ipsum, dolor sit amet consectetur adipisicing elit
                         </div>
                         <div className="flex content-center">
@@ -38,4 +38,4 @@ const ArtikelCard = (artikel) => {
     );
 };
 
-export default ArtikelCard;
+export default ArtikelHomeCard;
