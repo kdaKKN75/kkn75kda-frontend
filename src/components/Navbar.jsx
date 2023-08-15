@@ -39,7 +39,7 @@ function Navbar (){
         <nav className="block bg-[#10B981] h-14 md:flex justify-between items-center md:px-10 sticky top-0 text-black">
             <div className="flex ">
                 <img src={Logo} alt="" className="w-12 p-1"/>
-                <p className="py-2 pl-2 m-1 md:m-1">Sistem Informasi Desa</p>
+                <p className="py-2 pl-2 m-1 md:m-1">Desa Koncer Darul Aman</p>
             </div>
             <div className="">
                     <ul className={`text align-right items-center ${nav} md:flex`} id="MenuNav">

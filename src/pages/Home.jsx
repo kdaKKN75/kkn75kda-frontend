@@ -8,9 +8,29 @@ import Navbar from '../components/Navbar'
 import ArtikelHomeCard from '../components/card/ArticleHomeCard'
 import { BiFile } from 'react-icons/bi';
 import { Link } from 'react-router-dom'
+import client from '../api/axios'
+import { useEffect, useState } from 'react'
 
 
 function Home (){
+    const [articles, setArticles] = useState([]);
+    const [itemOffset, setItemOffset] = useState(0);
+    const fetchData = async() =>{
+        try{
+            const response = await client.get('https://64550599a74f994b334fc3e6.mockapi.io/artikel');
+            // console.log(response.data)
+            setArticles(response.data)
+        }catch (error){
+            console.log(error)
+        }
+    }
+
+    useEffect(()=>{
+        fetchData()
+    },[])
+    let itemPerPages = 6
+    const endOffset =itemOffset + itemPerPages
+    const currentItems = articles.slice(itemOffset, endOffset )
     return(
         <>
         <Navbar/>
@@ -20,8 +40,8 @@ function Home (){
                     <img src="https://tecdn.b-cdn.net/img/new/fluid/city/113.webp" alt="" className='w-80 md:w-96 m-auto md:m-0 rounded-md'/>
                     <div>
                         <h1 className='mt-2 text-2xl md:text-4xl font-bold'>Koncer Darul Aman</h1>
-                        <p className='my-2 md:w-96'>Desa Koncer Darul Aman Merupakan salah satu desa di kabupaten Bondowoso yang terletak di kecamatan Tenggarang. Desa ini  .</p>
-                        <Link to ={''}><button className='bg-[#10B981] py-2 px-3 rounded-md my-2 items-center'>Tentang Desa</button></Link>
+                        <p className='my-2 md:w-96'>Desa Koncer Darul Aman Merupakan salah satu desa di kabupaten Bondowoso yang terletak di kecamatan Tenggarang. Desa ini berbatasan dengan desa Koncer Kidul di bagian selatan, Desa Bataan di bagian utara, Desa Tamansari di bagian Barat,dan Desa Sumber Salam di bagian Timur .</p>
+                        <Link to ={'/visi-misi'}><button className='bg-[#10B981] py-2 px-3 rounded-md my-2 items-center'>Tentang Desa</button></Link>
                     </div>
                 </div>
             </section>
@@ -29,7 +49,7 @@ function Home (){
                 <div>
                     <img src={Penduduk} alt="" className="w-24 h-16 my-4 m-auto"/>
                     <h2 className='text-center'>Jumlah Penduduk</h2>
-                    <p className='text-center'>12334 penduduk</p>
+                    <p className='text-center'>1.520 penduduk</p>
                 </div>
                 <div>
                     <img src={Dusun} alt="" className="w-24 h-24 m-auto"/>
@@ -51,12 +71,11 @@ function Home (){
                 <div>
                     <h2 className='flex text-xl font-bold'><BiFile className='my-auto mr-2'/>Artikel Desa</h2>
                     <div className='flex flex-wrap md:gap-4 mb-2'>
-                        <ArtikelHomeCard/>
-                        <ArtikelHomeCard/>
-                        <ArtikelHomeCard/>
-                        <ArtikelHomeCard/>
-                        <ArtikelHomeCard/>
-                        <ArtikelHomeCard/>
+                    {articles.length > 0 ? (
+                                currentItems.map((currentItems, index) => <ArtikelHomeCard key={index} data={currentItems} />)
+                            ) : (
+                                <p className="text-center">Tidak Ada Artikel</p>
+                            )}
                     </div>
                     <div className='flex justify-center mb-2'>
                         <Link to={'/artikel'}><button className='bg-[#10B981] py-2 px-3 rounded-md my-2'>Selengkapnya</button></Link>

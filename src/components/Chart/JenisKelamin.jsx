@@ -1,15 +1,27 @@
 import { useEffect, useState } from "react"
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
+import client from '../../api/axios';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 function JenisKelamin (){
-    const [data,setdata] = useState([12, 19])
-    const [Jenis,setJenis] = useState([])
+    const [data,setdata] = useState([])
+    const [Jenis,setJenis] = useState(['Laki-Laki', 'Perempuan'])
+    const fetchData = async() =>{
+      try{
+          const response = await client.get('https://api.koncerdarulaman.my.id/statistik/gender');
+          setdata(Object.values(response.data.data.genders[0]))
+        }catch (error){
+          console.log(error)
+        }
+      }
+      useEffect(()=>{
+        fetchData()
+      }, [])
 
     const dataChart = {
-        labels: ['Laki-Laki', 'Perempuan'],
+        labels: Jenis,
         datasets: [
           {
             label: 'jumlah',

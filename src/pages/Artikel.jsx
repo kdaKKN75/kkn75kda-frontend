@@ -7,12 +7,13 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/footer/footer';
 import client from '../api/axios';
 import ReactPaginate from 'react-paginate';
+import { current } from '@reduxjs/toolkit';
 
 const Artikel = () => {
     const [articles, setArticles] = useState([]);
     const [tags, setTags] = useState([]);
     const [filter, setFilter] = useState('');
-    const [dataFetched, setDataFetched] = useState(false);
+    const [itemOffset, setItemOffset] = useState(0);
     const nav = useNavigate();
 
     const formatTag = (tag) => {
@@ -31,16 +32,37 @@ const Artikel = () => {
 
     const fetchData = async() =>{
         try{
-            const response = client.get('');
-            if(response.data.status = true){
-                setDataFetched(true);
-                setArticles()
-            }
+            const response = await client.get('https://64550599a74f994b334fc3e6.mockapi.io/artikel');
+            // console.log(response.data)
+            setArticles(response.data)
         }catch (error){
             console.log(error)
         }
     }
+    const fetchTags = async() =>{
+        try{
+            const response = await client.get('https://api.koncerdarulaman.my.id/tag');
+            // console.log(response.data)
+            setTags(response.data.data.tags)
+        }catch (error){
+            console.log(error)
+        }
+    }
+
+    useEffect(()=>{
+        fetchData()
+        fetchTags()
+    },[])
     
+    let itemPerPages = 6
+    const pageCount = Math.ceil(articles.length / itemPerPages)
+    const endOffset =itemOffset + itemPerPages
+    const currentItems = articles.slice(itemOffset, endOffset )
+
+    const handlePageClick = (event) => {
+        const newOffset = (event.selected * itemPerPages) % articles.length;
+        setItemOffset(newOffset);
+      };
     return (
         <>
             <Navbar/>
@@ -55,13 +77,8 @@ const Artikel = () => {
                         </div>
                         <hr style={{ border: '0.1px solid gray', marginBottom: '20px',marginRight: '25px' }} />
                         <div className='flex flex-wrap md:gap-x-0 2xl:gap-x-5 md:gap-y-4 '>
-                            <ArtikelCard/>
-                            <ArtikelCard/>
-                            <ArtikelCard/>
-                            <ArtikelCard/>
-                            <ArtikelCard/>
                             {articles.length > 0 ? (
-                                articles.map((article, index) => <ArtikelCard key={index} data={article} />)
+                                currentItems.map((currentItems, index) => <ArtikelCard key={index} data={currentItems} />)
                             ) : (
                                 <p className="text-center">Tidak Ada Artikel</p>
                             )}
@@ -71,12 +88,14 @@ const Artikel = () => {
                                 previousLabel={'Previous'}
                                 nextLabel={'Next'}
                                 breakLabel={"..."}
-                                pageCount={6}
+                                pageCount={pageCount}
                                 marginPagesDisplayed={2}
+                                onPageChange={handlePageClick}
                                 className='flex justify-center md:justify-start'
                                 pageClassName='border border-[#10B981] text-emerald-500 mx-1 px-2 pb-1'
-                                nextClassName='border border-[#10B981] text-emerald-500 mx-1 px-2 pb-1'
-                                previousClassName='border border-[#10B981] text-emerald-500 mx-1 px-2 pb-1'
+                                nextClassName='border bg-[#10B981] text-white mx-1 px-2 pb-1'
+                                previousClassName='border bg-[#10B981] text-white mx-1 px-2 pb-1'
+                                activeClassName='border bg-[#10B981] text-white mx-1 px-2 pb-1'
                                 breakClassName='text-emerald-500'/>
 
                         </div>

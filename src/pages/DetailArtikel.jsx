@@ -2,7 +2,27 @@ import Navbar from "../components/Navbar"
 import { BiFile } from 'react-icons/bi';
 import Footer from "../components/footer/footer";
 import ArtikelSideCard from "../components/card/ArticleSideCard";
+import { useEffect, useState } from "react";
+import client from "../api/axios";
 function DetailArtikel(){
+    const [side,setSide] = useState([])
+    const [itemOffset, setItemOffset] = useState(0);
+
+    const fetchData = async() =>{
+        try{
+            const response = await client.get('https://64550599a74f994b334fc3e6.mockapi.io/artikel');
+            // console.log(response.data)
+            setSide(response.data)
+        }catch (error){
+            console.log(error)
+        }
+    }
+    useEffect(()=>{
+        fetchData()
+    },[])
+    let itemPerPages = 5
+    const endOffset =itemOffset + itemPerPages
+    const currentItems = side.slice(itemOffset, endOffset )
     return(
         <>
         <Navbar/>
@@ -34,9 +54,11 @@ function DetailArtikel(){
                 </div>
                 <hr style={{ border: '0.1px solid gray', marginBottom: '20px' }} />
                 <div>
-                    <ArtikelSideCard/>
-                    <ArtikelSideCard/>
-                    <ArtikelSideCard/>
+                {side.length > 0 ? (
+                    currentItems.map((currentItems, index) => <ArtikelSideCard key={index} data={currentItems} />)
+                    ) : (
+                    <p className="text-center">Tidak Ada Artikel</p>
+                )}
                 </div>
             </aside>
         </main>

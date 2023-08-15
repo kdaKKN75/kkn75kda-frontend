@@ -18,40 +18,25 @@ function Statistik(){
         setpekerjaan(false)
         setkelamin(false)
         setumur(false)
-        console.log(pendidikan)
-        console.log(pekerjaan)
-        console.log(jenisKelamin)
-        console.log(umur)
     }
     const ShowPekerjaan = () =>{
         setpendidikan(false)
         setpekerjaan(true)
         setkelamin(false)
         setumur(false)
-        console.log(pendidikan)
-        console.log(pekerjaan)
-        console.log(jenisKelamin)
-        console.log(umur)
     }
     const ShowKelamin = () =>{
         setpendidikan(false)
         setpekerjaan(false)
         setkelamin(true)
         setumur(false)
-        console.log(pendidikan)
-        console.log(pekerjaan)
-        console.log(jenisKelamin)
-        console.log(umur)
+
     }
     const ShowUmur = () =>{
         setpendidikan(false)
         setpekerjaan(false)
         setkelamin(false)
         setumur(true)
-        console.log(pendidikan)
-        console.log(pekerjaan)
-        console.log(jenisKelamin)
-        console.log(umur)
     }
     return(
         <>

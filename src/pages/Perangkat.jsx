@@ -1,9 +1,23 @@
+import { useEffect, useState } from "react"
+import client from "../api/axios"
 import Navbar from "../components/Navbar"
 import Agenda from "../components/card/AgendaCard"
 import PerangkatCard from "../components/card/PerangkarCard"
 import Footer from "../components/footer/footer"
 
 function Perangkat(){
+    const [perangkat,setperangkat] = useState([])
+    const fetchData = async ()=> {
+        try{
+            const response = await client.get('https://api.koncerdarulaman.my.id/perangkat-desa')
+            setperangkat(response.data.data.perangkatDesa)
+        } catch (error){
+            console.log(error)
+        }
+    }
+    useEffect(()=>{
+        fetchData()
+    },[])
     return(
         <>
         <Navbar/>
@@ -12,7 +26,7 @@ function Perangkat(){
                 <div>
                     <h1 className="font-bold text-slate-950 text-xl">Perangkat Desa</h1>
                     <div className="flex flex-wrap justify-center">
-                        <PerangkatCard/>
+                        <PerangkatCard data={perangkat}/>
                         <PerangkatCard/>
                         <PerangkatCard/>
                         <PerangkatCard/>
@@ -25,9 +39,7 @@ function Perangkat(){
                         <PerangkatCard/>
                     </div>
                 </div>
-                <div>
-                    <h1 className="font-bold text-slate-950 text-xl">Sejarah Desa</h1>
-                </div>
+                
             </section>
             <hr className="border border-black border-solid my-2 md:hidden"/>
             <section className="md:w-1/4">

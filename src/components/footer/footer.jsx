@@ -16,8 +16,7 @@ const Footer = () => {
                             </div>
                             <div className="mt-3">
                                 <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque vitae cupiditate illo
-                                    animi, praesentium qui dolores quasi necessitatibus quam officiis ipsa.
+                                Desa Koncer Darul Aman Merupakan salah satu desa di kabupaten Bondowoso yang terletak di kecamatan Tenggarang.
                                 </p>
                             </div>
                         </div>

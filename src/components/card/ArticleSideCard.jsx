@@ -2,10 +2,10 @@ import { Link } from 'react-router-dom';
 function ArtikelSideCard(){
     return(
         <>
-        <div className=" rounded overflow-hidden shadow-lg my-2">
+        <div className=" rounded overflow-hidden shadow-md my-2 ">
             <Link to={''} className='flex'>
                 <img
-                    className="w-full max-w-[150px] rounded-[20px] pt-4 pe-4 pb-1 ps-4"
+                    className="w-full max-w-[150px] rounded-[10px] pt-4 pe-4 pb-4 ps-4"
                     src="https://tecdn.b-cdn.net/img/new/fluid/city/113.webp"
                     alt="Mountain"
                 />

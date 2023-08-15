@@ -1,12 +1,37 @@
 import { useEffect, useState } from "react"
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
+import client from '../../api/axios';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 function Umur (){
-    const [data,setdata] = useState([20, 19])
-    const [umur,setumur] = useState(['0-1 tahun', '2-4 tahun'])
+    const [data,setdata] = useState([])
+    const [umur,setumur] = useState([])
+
+    const fetchData = async() =>{
+      try{
+          const response = await client.get('https://api.koncerdarulaman.my.id/statistik/umur');
+          // setPekerjaan(Object.keys(response.data.data.jobs[0]))
+          const listUmur = []
+          let t = 0
+          Object.keys(response.data.data.ages[0]).forEach((job) => {
+            listUmur.push(job.replace(/_/g, match => ++t === 2 ? '-' : match))
+            t = 0
+          })
+          const ListTemp = []
+          listUmur.forEach((umur)=>{
+            ListTemp.push(umur.replaceAll("_"," "))
+          })
+          setumur(ListTemp)
+          setdata(Object.values(response.data.data.ages[0]))
+        }catch (error){
+          console.log(error)
+        }
+      }
+      useEffect(()=>{
+        fetchData()
+      }, [])
 
     const dataChart = {
         labels: umur,
