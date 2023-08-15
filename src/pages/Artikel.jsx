@@ -53,7 +53,7 @@ const Artikel = () => {
         fetchData()
         fetchTags()
     },[])
-    
+
     let itemPerPages = 6
     const pageCount = Math.ceil(articles.length / itemPerPages)
     const endOffset =itemOffset + itemPerPages
@@ -76,7 +76,7 @@ const Artikel = () => {
                             <h1 className="text-slate-950">Berita</h1>
                         </div>
                         <hr style={{ border: '0.1px solid gray', marginBottom: '20px',marginRight: '25px' }} />
-                        <div className='flex flex-wrap md:gap-x-0 2xl:gap-x-5 md:gap-y-4 '>
+                        <div className='flex flex-wrap gap-y-3 md:gap-x-0 2xl:gap-x-5 md:gap-y-4 '>
                             {articles.length > 0 ? (
                                 currentItems.map((currentItems, index) => <ArtikelCard key={index} data={currentItems} />)
                             ) : (
@@ -108,7 +108,7 @@ const Artikel = () => {
                             <h1 className="text-xl font-bold text-slate-950">Kategori</h1>
                         </div>
                         <hr style={{ border: '0.1px solid gray', marginBottom: '20px' }} />
-                        <div className="flex flex-wrap gap-2">
+                        <div className="flex flex-wrap gap-2 px-2 md:px-0">
                             <button className="text-emerald-500 border border-emerald-500 hover:bg-emerald-500 hover:text-white active:bg-emerald-600 font-bold px-3 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">Program Kerja</button>
                             <button className="text-emerald-500 border border-emerald-500 hover:bg-emerald-500 hover:text-white active:bg-emerald-600 font-bold px-3 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">kesehatan</button>
                             <button className="text-emerald-500 border border-emerald-500 hover:bg-emerald-500 hover:text-white active:bg-emerald-600 font-bold px-3 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">Pendidikan</button>

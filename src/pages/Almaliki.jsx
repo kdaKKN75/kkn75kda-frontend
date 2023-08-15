@@ -9,7 +9,7 @@ function Almaliki (){
         <Navbar/>
         <main className="md:px-10 text-slate-950 px-1">
             <h1 className="text-3xl font-bold">Yayasan Al-Maliki</h1>
-            <div className="flex flex-wrap">
+            <div className="flex flex-wrap justify-center md:justify-normal">
                 <section className="rounded max-w-xl  shadow-md p-2 md:px-5 bg-slate-150 mb-7">
                     <h2 className="text-xl font-bold mb-3">PAUD Al-Maliki</h2>
                     <img 

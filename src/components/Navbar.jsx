@@ -39,7 +39,7 @@ function Navbar (){
         <nav className="block bg-[#10B981] h-14 md:flex justify-between items-center md:px-10 sticky top-0 text-black">
             <div className="flex ">
                 <img src={Logo} alt="" className="w-12 p-1"/>
-                <p className="py-2 pl-2 m-1 md:m-1">Desa Koncer Darul Aman</p>
+                <Link to={'/'}><p className="py-2 pl-2 m-1 md:m-1">Desa Koncer Darul Aman</p></Link>
             </div>
             <div className="">
                     <ul className={`text align-right items-center ${nav} md:flex`} id="MenuNav">
@@ -51,7 +51,7 @@ function Navbar (){
                             <div>
                                 <ul className="md:absolute z-10 md:w-32" style={{display:"none"}} id="MenuProfil1">
                                     <Link to={'/Al-Maliki'}><li className="py-2 pl-4 flex md:px-1 bg-[#22d69b] hover:bg-[#2ae8a9] float-none cursor-default md:w-44"><BiCaretRight className="mt-1"/>Al-Maliki</li></Link>
-                                    <Link to={'/Nurul Anwar'}><li className="py-2 pl-4 flex md:px-1 bg-[#22d69b] hover:bg-[#2ae8a9] float-none cursor-default md:w-44"><BiCaretRight className="mt-1"/>Nurul Anwar</li></Link>
+                                    <Link to={'/Nurul Anwar'}><li className="py-2 pl-4 flex md:px-1 bg-[#22d69b] hover:bg-[#2ae8a9] float-none cursor-default md:w-44"><BiCaretRight className="mt-1"/>Nurul Hasan</li></Link>
                                     
                                 </ul>
                             </div>

@@ -6,7 +6,7 @@ const VisiMisi = () => {
     return (
         <>
         <Navbar/>
-        <main className="flex flex-col md:flex-row mx-1 md:px-10 md:mb-10">
+        <main className="flex flex-col md:flex-row mx-3 md:px-10 md:mb-10">
             <section className="text-slate-950 md:w-3/4">
                 <h1 className="text-3xl font-bold text-center pt-5">VISI DAN MISI DESA KONCER DARUL AMAN</h1>
                 <article className="mt-3">

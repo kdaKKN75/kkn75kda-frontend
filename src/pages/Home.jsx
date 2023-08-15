@@ -37,7 +37,7 @@ function Home (){
         <main>
             <section className='my-3 mx-2 md:my-20 text-slate-950 md:px-10'>
                 <div className='flex flex-col md:flex-row-reverse content-center md:justify-between'>
-                    <img src="https://tecdn.b-cdn.net/img/new/fluid/city/113.webp" alt="" className='w-80 md:w-96 m-auto md:m-0 rounded-md'/>
+                    <img src="https://tecdn.b-cdn.net/img/new/fluid/city/113.webp" alt="" className='w-80 md:w-96 m-auto md:m-0 rounded-md hidden md:block'/>
                     <div>
                         <h1 className='mt-2 text-2xl md:text-4xl font-bold'>Koncer Darul Aman</h1>
                         <p className='my-2 md:w-96'>Desa Koncer Darul Aman Merupakan salah satu desa di kabupaten Bondowoso yang terletak di kecamatan Tenggarang. Desa ini berbatasan dengan desa Koncer Kidul di bagian selatan, Desa Bataan di bagian utara, Desa Tamansari di bagian Barat,dan Desa Sumber Salam di bagian Timur .</p>

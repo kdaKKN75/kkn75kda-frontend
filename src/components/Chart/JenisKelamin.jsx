@@ -7,7 +7,6 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 function JenisKelamin (){
     const [data,setdata] = useState([])
-    const [Jenis,setJenis] = useState(['Laki-Laki', 'Perempuan'])
     const fetchData = async() =>{
       try{
           const response = await client.get('https://api.koncerdarulaman.my.id/statistik/gender');
@@ -21,7 +20,7 @@ function JenisKelamin (){
       }, [])
 
     const dataChart = {
-        labels: Jenis,
+        labels: ['Laki - Laki', 'Perempuan'],
         datasets: [
           {
             label: 'jumlah',
@@ -29,10 +28,12 @@ function JenisKelamin (){
             backgroundColor: [
               'rgba(255, 99, 132, 0.8)',
               'rgba(54, 162, 235, 0.8)',
+              'rgba(255, 206, 86, 0.8)',
             ],
             borderColor: [
               'rgba(255, 99, 132, 1)',
               'rgba(54, 162, 235, 1)',
+              'rgba(255, 206, 86, 0.8)',
             ],
             borderWidth: 1,
           },
