@@ -4,13 +4,15 @@ import Footer from "../components/footer/footer";
 import ArtikelSideCard from "../components/card/ArticleSideCard";
 import { useEffect, useState } from "react";
 import client from "../api/axios";
+import { useParams } from "react-router-dom";
 function DetailArtikel(){
     const [side,setSide] = useState([])
     const [itemOffset, setItemOffset] = useState(0);
+    let {id} = useParams()
 
     const fetchData = async() =>{
         try{
-            const response = await client.get('https://64550599a74f994b334fc3e6.mockapi.io/artikel');
+            const response = await client.get(`https://64550599a74f994b334fc3e6.mockapi.io/artikel/`);
             // console.log(response.data)
             setSide(response.data)
         }catch (error){

@@ -10,11 +10,12 @@ function App() {
         <BrowserRouter>
             <NavMobileContextProvider>
                 <Routes>
-                    <Route path="/artikel" element={<Artikel />} />
+                    <Route path="/artikel" element={<Artikel />}/>
+                    <Route path="/artikel/:id" element={<DetailArtikel/>}/>
                     <Route path="/visi-misi" element={<VisiMisi />} />
                     <Route path="admin/dashboard" element={<HomeAdmin />} />
                     <Route path="admin/login" element={<Login />} />
-                    <Route path="/detail" element={<DetailArtikel />} />
+                    {/* <Route path="/detail" element={<DetailArtikel />} /> */}
                     <Route path="" element={<Home />} />
                     <Route path="/statistik" element={<Statistik />} />
                     <Route path="/Perangkat" element={<Perangkat />} />

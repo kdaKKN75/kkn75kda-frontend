@@ -4,6 +4,7 @@ import TKPaud from "../assets/TK Almaliki.png"
 import AlMaliki from "../assets/AlMaliki.jpg"
 
 function Almaliki (){
+    window.scrollTo(0, 0)
     return(
         <>
         <Navbar/>

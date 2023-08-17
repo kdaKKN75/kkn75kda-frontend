@@ -27,6 +27,7 @@ function Home (){
 
     useEffect(()=>{
         fetchData()
+        window.scrollTo(0, 0)
     },[])
     let itemPerPages = 6
     const endOffset =itemOffset + itemPerPages

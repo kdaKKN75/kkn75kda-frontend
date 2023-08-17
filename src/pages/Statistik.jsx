@@ -12,24 +12,27 @@ function Statistik(){
     const [umur,setumur] = useState(false)
     const [pekerjaan,setpekerjaan] = useState(false)
     const [jenisKelamin,setkelamin] = useState(false)
-
+    window.scrollTo(0, 0)
     const ShowPendidikan = () =>{
         setpendidikan(true)
         setpekerjaan(false)
         setkelamin(false)
         setumur(false)
+        window.scrollTo(0, 0)
     }
     const ShowPekerjaan = () =>{
         setpendidikan(false)
         setpekerjaan(true)
         setkelamin(false)
         setumur(false)
+        window.scrollTo(0, 0)
     }
     const ShowKelamin = () =>{
         setpendidikan(false)
         setpekerjaan(false)
         setkelamin(true)
         setumur(false)
+        window.scrollTo(0, 0)
 
     }
     const ShowUmur = () =>{
@@ -37,6 +40,7 @@ function Statistik(){
         setpekerjaan(false)
         setkelamin(false)
         setumur(true)
+        window.scrollTo(0, 0)
     }
     return(
         <>

@@ -52,8 +52,8 @@ const Artikel = () => {
     useEffect(()=>{
         fetchData()
         fetchTags()
+        window.scrollTo(0, 0)
     },[])
-
     let itemPerPages = 6
     const pageCount = Math.ceil(articles.length / itemPerPages)
     const endOffset =itemOffset + itemPerPages
@@ -62,6 +62,7 @@ const Artikel = () => {
     const handlePageClick = (event) => {
         const newOffset = (event.selected * itemPerPages) % articles.length;
         setItemOffset(newOffset);
+        window.scrollTo(0, 0)
       };
     return (
         <>

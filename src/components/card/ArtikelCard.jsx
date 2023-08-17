@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 const ArtikelCard = (artikel) => {
     return (
         <>
-            <div className="max-w-md 2xl:max-w-lg rounded overflow-hidden shadow-lg bg-slate-50">
-                <Link to={`/artikel/${artikel.id}`}>
+            <div className="max-w-md 2xl:max-w-lg rounded overflow-hidden shadow-lg bg-slate-50" >
+                <Link to={`/artikel/${artikel.data.id}`}>
                     <img
                         className="w-full rounded-[20px] pt-4 pe-4 pb-1 ps-4"
                         src="https://tecdn.b-cdn.net/img/new/fluid/city/113.webp"
@@ -16,7 +16,7 @@ const ArtikelCard = (artikel) => {
                             Program Kerja
                         </span>
                         <div className="font-bold text-xl my-1 text-slate-950">
-                            Mountain Lorem ipsum, dolor sit amet consectetur adipisicing elit
+                            {artikel.data.Judul}
                         </div>
                         <div className="flex content-center">
                             <span className="my-auto me-2 text-gray-600">
@@ -28,7 +28,7 @@ const ArtikelCard = (artikel) => {
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores
                             et perferendis eaque, exercitationem praesentium nihil.
                         </p>
-                        <Link to={artikel.id} className="text-green-700 hover:underline">
+                        <Link to={`/artikel/${artikel.data.id}`} className="text-green-700 hover:underline">
                             Baca selengkapnya
                         </Link>
                     </div>

@@ -2,6 +2,7 @@ import Navbar from "../components/Navbar"
 import Footer from "../components/footer/footer"
 
 function NurulAnwar (){
+    window.scrollTo(0, 0)
     return(
         <>
         <Navbar/>

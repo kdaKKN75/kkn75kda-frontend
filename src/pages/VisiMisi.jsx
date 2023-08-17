@@ -3,6 +3,7 @@ import Agenda from "../components/card/AgendaCard";
 import Footer from "../components/footer/footer";
 
 const VisiMisi = () => {
+    window.scrollTo(0, 0)
     return (
         <>
         <Navbar/>
