@@ -9,7 +9,7 @@ function JenisKelamin (){
     const [data,setdata] = useState([])
     const fetchData = async() =>{
       try{
-          const response = await client.get('https://api.koncerdarulaman.my.id/statistik/gender');
+          const response = await client.get('/statistik/gender');
           setdata(Object.values(response.data.data.genders[0]))
         }catch (error){
           console.log(error)

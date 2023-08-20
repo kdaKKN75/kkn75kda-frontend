@@ -8,12 +8,12 @@ const ArtikelCard = (artikel) => {
                 <Link to={`/artikel/${artikel.data.id}`}>
                     <img
                         className="w-full rounded-[20px] pt-4 pe-4 pb-1 ps-4"
-                        src="https://tecdn.b-cdn.net/img/new/fluid/city/113.webp"
+                        src={artikel.data.thumbnail}
                         alt="Mountain"
                     />
                     <div className="px-4 py-3">
                         <span className="bg-green-100 text-gray-800 text-xs font-medium mr-2 px-3 py-1 rounded">
-                            Program Kerja
+                            {artikel.data.tag}
                         </span>
                         <div className="font-bold text-xl my-1 text-slate-950">
                             {artikel.data.Judul}
@@ -22,12 +22,11 @@ const ArtikelCard = (artikel) => {
                             <span className="my-auto me-2 text-gray-600">
                                 <BiCalendarEdit />
                             </span>
-                            <p className="text-gray-600">18 Juni 2023</p>
+                            <p className="text-gray-600">{artikel.data.updatedAt}</p>
                         </div>
-                        <p className="text-gray-700 text-base text-ellipsis line-clamp-2">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores
-                            et perferendis eaque, exercitationem praesentium nihil.
-                        </p>
+                        <div className="text-gray-700 text-base text-ellipsis line-clamp-2" dangerouslySetInnerHTML={{__html: artikel.data.isi}}>
+                            
+                        </div>
                         <Link to={`/artikel/${artikel.data.id}`} className="text-green-700 hover:underline">
                             Baca selengkapnya
                         </Link>

@@ -11,7 +11,7 @@ function Pendidikan (){
 
     const fetchData = async() =>{
       try{
-          const response = await client.get('https://api.koncerdarulaman.my.id/statistik/pendidikan');
+          const response = await client.get('/statistik/pendidikan');
           // setPekerjaan(Object.keys(response.data.data.jobs[0]))
           const listPendidikan = []
           Object.keys(response.data.data.educations[0]).forEach((job) => {
@@ -31,7 +31,7 @@ function Pendidikan (){
         labels: Pendidikan,
         datasets: [
           {
-            label: '# of Votes',
+            label: 'jumlah',
             data: data,
             backgroundColor: [
               'rgba(255, 99, 132, 0.8)',

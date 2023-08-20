@@ -6,7 +6,7 @@ function Agenda(){
     const [kegiatan, setKegiatan] = useState([])
     const fetchData = async()=>{
         try{
-            const response = await client.get('https://api.koncerdarulaman.my.id/agenda')
+            const response = await client.get('/agenda')
             setKegiatan(response.data.data.agenda)
         } catch (error){
             console.log(error)
@@ -22,7 +22,7 @@ function Agenda(){
             <h1 className="text-center text-slate-950 py-3 font-medium">Agenda Kegiatan</h1>
             <div className="bg-slate-50 text-slate-950 rounded-b-md pt-1">
             {kegiatan.length > 0 ? (
-                kegiatan.map((currentItems, index) => <kegiatan key={index} data={kegiatan} />)
+                kegiatan.map((kegiatan, index) => <Kegiatan key={index} data={kegiatan} />)
                 ) : (
                 <div className="py-5 text-center">
                     <p>Tidak Ada Kegiatan</p>

@@ -11,7 +11,7 @@ function Umur (){
 
     const fetchData = async() =>{
       try{
-          const response = await client.get('https://api.koncerdarulaman.my.id/statistik/umur');
+          const response = await client.get('/statistik/umur');
           // setPekerjaan(Object.keys(response.data.data.jobs[0]))
           const listUmur = []
           let t = 0

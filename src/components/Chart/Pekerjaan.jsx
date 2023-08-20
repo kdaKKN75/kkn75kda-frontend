@@ -10,7 +10,7 @@ function Pekerjaan (){
   const [Pekerjaan,setPekerjaan] = useState([])
   const fetchData = async() =>{
     try{
-        const response = await client.get('https://api.koncerdarulaman.my.id/statistik/pekerjaan');
+        const response = await client.get('/statistik/pekerjaan');
         // setPekerjaan(Object.keys(response.data.data.jobs[0]))
         const listPekerjaan = []
         Object.keys(response.data.data.jobs[0]).forEach((job) => {

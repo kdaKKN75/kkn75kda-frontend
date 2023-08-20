@@ -9,7 +9,7 @@ function Perangkat(){
     const [perangkat,setperangkat] = useState([])
     const fetchData = async ()=> {
         try{
-            const response = await client.get('https://api.koncerdarulaman.my.id/perangkat-desa')
+            const response = await client.get('/perangkat-desa')
             setperangkat(response.data.data.perangkatDesa)
         } catch (error){
             console.log(error)
@@ -19,6 +19,7 @@ function Perangkat(){
         fetchData()
         window.scrollTo(0, 0)
     },[])
+    console.log(perangkat)
     return(
         <>
         <Navbar/>
@@ -27,17 +28,13 @@ function Perangkat(){
                 <div>
                     <h1 className="font-bold text-slate-950 text-xl">Perangkat Desa</h1>
                     <div className="flex flex-wrap justify-center">
-                        <PerangkatCard data={perangkat}/>
-                        <PerangkatCard/>
-                        <PerangkatCard/>
-                        <PerangkatCard/>
-                        <PerangkatCard/>
-                        <PerangkatCard/>
-                        <PerangkatCard/>
-                        <PerangkatCard/>
-                        <PerangkatCard/>
-                        <PerangkatCard/>
-                        <PerangkatCard/>
+                    {perangkat.length > 0 ? (
+                        perangkat.map((perangkat, index) => <PerangkatCard key={index} data={perangkat} />)
+                        ) : (
+                <   div className="py-5 text-center">
+                        <p>Tidak Ada perangkat</p>
+                    </div>
+            )}
                     </div>
                 </div>
                 

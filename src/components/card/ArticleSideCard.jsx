@@ -1,17 +1,18 @@
 import { Link } from 'react-router-dom';
-function ArtikelSideCard(){
+function ArtikelSideCard(data){
+    console.log(data)
     return(
         <>
         <div className=" rounded overflow-hidden shadow-md my-2 ">
             <Link to={''} className='flex'>
                 <img
                     className="w-full max-w-[150px] rounded-[10px] pt-4 pe-4 pb-4 ps-4"
-                    src="https://tecdn.b-cdn.net/img/new/fluid/city/113.webp"
-                    alt="Mountain"
+                    src={data.data.thumbnail}
+                    alt={data.data.judul}
                 />
                 <div>
-                    <h1 className="font-bold text-xl pt-4 text-ellipsis line-clamp-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. </h1>
-                    <p>12/12/1212</p>
+                    <h1 className="font-bold text-xl pt-4 text-ellipsis line-clamp-1">{data.data.judul}</h1>
+                    <p>{data.data.updatedAt}</p>
                 </div>
             </Link>
         </div>
