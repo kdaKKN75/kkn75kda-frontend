@@ -47,11 +47,11 @@ function Navbar (){
                         <Link to={'/artikel'}><li className="py-2 pl-2 md:px-2 md:py-4 bg-[#22d69b] hover:bg-[#2ae8a9] md:bg-[#10B981] cursor-default">Artikel</li></Link>
                         <Link to={'/statistik'}><li className="py-2 pl-2 md:px-2 md:py-4 bg-[#22d69b] hover:bg-[#2ae8a9] md:bg-[#10B981] cursor-default">Statistik</li></Link>
                         <div>
-                            <li className="flex py-2 pl-2 md:px-2 md:py-4 bg-[#22d69b] hover:bg-[#2ae8a9] items-center  md:bg-[#10B981] cursor-default md:w-44" id="dropdownMenuButton1" onClick={klikYayasan}>Yayasan Pendidikan <FaAngleDown className="mt-1 ml-2"/></li>
+                            <li className="flex py-2 pl-2 md:px-2 md:py-4 bg-[#22d69b] hover:bg-[#2ae8a9] items-center  md:bg-[#10B981] cursor-default md:w-48" id="dropdownMenuButton1" onClick={klikYayasan}>Yayasan Pendidikan <FaAngleDown className="mt-1 ml-2"/></li>
                             <div>
-                                <ul className="md:absolute z-10 md:w-32" style={{display:"none"}} id="MenuProfil1">
-                                    <Link to={'/Al-Maliki'}><li className="py-2 pl-4 flex md:px-1 bg-[#22d69b] hover:bg-[#2ae8a9] float-none cursor-default md:w-44"><BiCaretRight className="mt-1"/>Al-Maliki</li></Link>
-                                    <Link to={'/Nurul Anwar'}><li className="py-2 pl-4 flex md:px-1 bg-[#22d69b] hover:bg-[#2ae8a9] float-none cursor-default md:w-44"><BiCaretRight className="mt-1"/>Nurul Hasan</li></Link>
+                                <ul className="md:absolute z-10 md:w-52" style={{display:"none"}} id="MenuProfil1">
+                                    <Link to={'/Al-Maliki'}><li className="py-2 pl-4 flex md:px-1 bg-[#22d69b] hover:bg-[#2ae8a9] float-none cursor-default md:w-48"><BiCaretRight className="mt-1"/>Al-Maliki</li></Link>
+                                    <Link to={'/Nurul Anwar'}><li className="py-2 pl-4 flex md:px-1 bg-[#22d69b] hover:bg-[#2ae8a9] float-none cursor-default md:w-48"><BiCaretRight className="mt-1"/>Nurul Hasan</li></Link>
                                     
                                 </ul>
                             </div>

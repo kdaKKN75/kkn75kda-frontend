@@ -27,12 +27,6 @@ const Footer = () => {
                                 </span>
                                 <h2 className="ms-3 font-bold text-xl">Hubungi Kami</h2>
                             </div>
-                            <div className="mt-3">
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque vitae cupiditate illo
-                                    animi.
-                                </p>
-                            </div>
                             <div>
                                 <div>
                                     <div className="flex flex-row content-center mt-2">
